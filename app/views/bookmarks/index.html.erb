@@ -25,13 +25,13 @@
         <td><%= bookmark.name %></td>
         <td><%= bookmark.url %></td>
         <td>
-          <%= bookmark.categories.each do |cate| %>
-          <%= cate %>
+          <% bookmark.categories.each do |cate| %>
+          <%= cate.name %>
           <% end %>
         </td>
         <td>
-          <%= bookmark.kinds.each do |ki| %>
-          <%= ki %>
+          <% bookmark.kinds.each do |ki| %>
+          <%= ki.name %>
           <% end %>
         </td>
 
