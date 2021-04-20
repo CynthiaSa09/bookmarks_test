@@ -4,6 +4,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks or /bookmarks.json
   def index
     @bookmarks = Bookmark.all
+    @bookmark = Bookmark.new
   end
 
   # GET /bookmarks/1 or /bookmarks/1.json
@@ -25,6 +26,7 @@ class BookmarksController < ApplicationController
 
     respond_to do |format|
       if @bookmark.save
+        format.js {}
         format.html { redirect_to @bookmark, notice: "Bookmark was successfully created." }
         format.json { render :show, status: :created, location: @bookmark }
       else
@@ -64,6 +66,6 @@ class BookmarksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bookmark_params
-      params.require(:bookmark).permit(:name, :url)
+      params.require(:bookmark).permit(:name, :url, category_ids: [], kind_ids: [])
     end
 end
