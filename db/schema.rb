@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_152100) do
   create_table "bookmark_categories", force: :cascade do |t|
     t.integer "bookmark_id"
     t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["bookmark_id"], name: "index_bookmark_categories_on_bookmark_id"
     t.index ["category_id"], name: "index_bookmark_categories_on_category_id"
   end
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_152100) do
   create_table "bookmark_kinds", force: :cascade do |t|
     t.integer "bookmark_id"
     t.integer "kind_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["bookmark_id"], name: "index_bookmark_kinds_on_bookmark_id"
     t.index ["kind_id"], name: "index_bookmark_kinds_on_kind_id"
   end
@@ -33,28 +33,28 @@ ActiveRecord::Schema.define(version: 2021_04_19_152100) do
   create_table "bookmarks", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.boolean "is_public"
     t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_categories_on_category_id"
   end
 
   create_table "kinds", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  #add_foreign_key "bookmark_categories", "bookmarks"
-  #add_foreign_key "bookmark_categories", "categories"
-  #add_foreign_key "bookmark_kinds", "bookmarks"
-  #add_foreign_key "bookmark_kinds", "kinds"
-  #add_foreign_key "categories", "categories"
+  add_foreign_key "bookmark_categories", "bookmarks"
+  add_foreign_key "bookmark_categories", "categories"
+  add_foreign_key "bookmark_kinds", "bookmarks"
+  add_foreign_key "bookmark_kinds", "kinds"
+  add_foreign_key "categories", "categories"
 end

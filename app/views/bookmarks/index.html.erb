@@ -27,12 +27,12 @@
         <td>
           <%= bookmark.categories.each do |cate| %>
           <%= cate %>
-          <%= end %>
+          <% end %>
         </td>
         <td>
           <%= bookmark.kinds.each do |ki| %>
-          <%= kin %>
-          <%= end %>
+          <%= ki %>
+          <% end %>
         </td>
 
         <td><%= link_to 'Show', bookmark_path(bookmark) %></td>

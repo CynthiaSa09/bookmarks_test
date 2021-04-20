@@ -1,23 +1,25 @@
 require 'faker'
 
-
+#Registro de tipos(kinds)
 20.times do |i|
   name = Faker::Commerce.department + (i + 1).to_s
   Kind.create!(name: name)
 end
 
+#Registro de categorias
 10.times do |c|
-  name = Faker::Food.dish + (c + 1).to_s
+  name = Faker::Movie.quote + (c + 1).to_s
   is_public = [true, false].sample
   Seed = Category.create!(name: name, is_public: is_public)
   5.times do |h|
-    name = Faker::Food.dish + (c + 1).to_s
+    name = Faker::Movie.quote + (c + 1).to_s
     is_public = [true, false].sample
     category_id = Seed.id
     Category.create!(name: name, is_public: is_public, category_id: category_id)
   end
 end
 
+#Registro de bookmarks
 categories = Category.all
 kinds = Kind.all
 

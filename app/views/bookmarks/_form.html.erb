@@ -23,18 +23,18 @@
 
   <div class="field">
    <h5><%= form.label "Select the categories" %></h5>
-   <%= form.collection_chech_boxes :category_ids, Category.all, :id, :name do |cat| %>
+   <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cat| %>
    <%= cat.label %>
-   <%= cat.chech_box %>
-  <%= end %>
+   <%= cat.check_box %>
+  <% end %>
   </div>
 
   <div class="field">
   <h5><%= form.label "Select the kinds" %></h5>
-   <%= form.collection_chech_boxes :kinds_ids, Kind.all, :id, :name do |cat| %>
+   <%= form.collection_check_boxes :kind_ids, Kind.all, :id, :name do |cat| %>
    <%= cat.label %>
-   <%= cat.chech_box %>
-  <%= end %>
+   <%= cat.check_box %>
+  <% end %>
   </div>
 
   <div class="actions">
